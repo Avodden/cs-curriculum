@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     float yspeed;
     float ydirection;
     float yvector;
+    float coin_amount;
 
    public bool overworld; 
 
@@ -18,6 +19,7 @@ public class PlayerController : MonoBehaviour
     {
         GetComponentInChildren<TopDown_AnimatorController>().enabled = overworld;
         GetComponentInChildren<Platformer_AnimatorController>().enabled = !overworld; //what do you think ! means?
+        coin_amount = 0;
 
         xspeed = 5;
         
@@ -50,13 +52,21 @@ public class PlayerController : MonoBehaviour
         ydirection = Input.GetAxis("Vertical");
         yvector = yspeed * ydirection * Time.deltaTime;
         transform.Translate(0, yvector, 0);
-    } 
-    
+    }
+    private void OnTriggerEnter(Collider collider)
+    {
+        if (collider.tag == "Coin")
+        {
+            coin_amount = +1;
+            Destroy(collider.gameObject);
+        }
+    }
+
     //for organization, put other built-in Unity functions here
-    
-    
-    
-    
-    
+
+
+
+
+
     //after all Unity functions, your own functions can go here
 }
