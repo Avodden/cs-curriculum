@@ -53,12 +53,13 @@ public class PlayerController : MonoBehaviour
         yvector = yspeed * ydirection * Time.deltaTime;
         transform.Translate(0, yvector, 0);
     }
-    private void OnTriggerEnter(Collider collider)
+    void OnTriggerEnter2D(Collider2D other)
     {
-        if (collider.tag == "Coin")
+        if (other.gameObject.CompareTag("Coin")) 
         {
-            coin_amount = +1;
-            Destroy(collider.gameObject);
+            coin_amount = coin_amount + 1;
+            Destroy(other.gameObject);
+            print("You have " + coin_amount + " coins.");
         }
     }
 
