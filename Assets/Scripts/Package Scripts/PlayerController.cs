@@ -53,15 +53,8 @@ public class PlayerController : MonoBehaviour
         yvector = yspeed * ydirection * Time.deltaTime;
         transform.Translate(0, yvector, 0);
     }
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.gameObject.CompareTag("Coin")) 
-        {
-            coin_amount = coin_amount + 1;
-            Destroy(other.gameObject);
-            print("You have " + coin_amount + " coins.");
-        }
-    }
+   
+   
 
     //for organization, put other built-in Unity functions here
 
