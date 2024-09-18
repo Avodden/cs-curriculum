@@ -194,6 +194,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1019152384}
+    - targetCorrespondingSourceObject: {fileID: 8049566408774423969, guid: bc139d8bb8dee439490b05712200dfee,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1019152385}
   m_SourcePrefab: {fileID: 100100000, guid: bc139d8bb8dee439490b05712200dfee, type: 3}
 --- !u!1 &532849911
 GameObject:
@@ -2717,6 +2721,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3b2a67840db0443e805e4e418593e45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1019152385
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1019152379}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2de7c5eecdfd1425f8c9e2d3ab3f9dc6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1717245385
 GameObject:
   m_ObjectHideFlags: 0
@@ -2746,7 +2762,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1030198d935a94fb3ac84c07b2d051c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Coin: 0
+  coins_amount: 0
+  health_amount: 0
 --- !u!4 &1717245387
 Transform:
   m_ObjectHideFlags: 0
