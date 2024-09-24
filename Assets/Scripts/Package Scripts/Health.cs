@@ -6,9 +6,11 @@ public class Health : MonoBehaviour
 {
    GameManager gm;
 
+   public float health;
+   
    public Slider healthSlider;
 
-   public Slider easehealthSlider;
+   public Slider EasehealthSlider;
 
    private float lerpSpeed = 0.05f;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -16,7 +18,7 @@ public class Health : MonoBehaviour
     {
         gm = FindObjectOfType<GameManager>();
         gm.health_amount = 100;
-        
+        health = gm.health_amount;
     }
 
     // Update is called once per frame
@@ -25,20 +27,21 @@ public class Health : MonoBehaviour
         if(other.gameObject.CompareTag("Spikes"))
         {
             gm.health_amount -= 10;
+            gm.health_amount = Mathf.Clamp(gm.health_amount, 0, 100);
             print("you have " + gm.health_amount + " health left"); 
         }
     }
 
     void Update()
     {
-        if (healthSlider.value != gm.health_amount)
+        if (healthSlider.value != health)
         {
-            healthSlider.value = gm.health_amount;
+            healthSlider.value = health;
         }
-
-        if (healthSlider.value != easehealthSlider.value)
+        
+        if (EasehealthSlider.value != health)
         {
-            easehealthSlider.value = MathF.SmoothStep(easehealthSlider.value, gm.health_amount, lerpSpeed);
+            EasehealthSlider.value = Mathf.Lerp(EasehealthSlider.value, healthSlider.value, lerpSpeed);
         }
     }
 } 
