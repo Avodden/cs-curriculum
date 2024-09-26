@@ -10,7 +10,6 @@ public class CoinCollect : MonoBehaviour
     void Start()
     {
         gm = FindObjectOfType<GameManager>();
-        gm.coins_amount = 0;
     }
     void OnTriggerEnter2D (Collider2D other)
     // Update is called once per frame

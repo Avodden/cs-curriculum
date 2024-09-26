@@ -1,24 +1,15 @@
 using System;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class Health : MonoBehaviour
 {
    GameManager gm;
 
-   public float health;
    
-   public Slider healthSlider;
-
-   public Slider EasehealthSlider;
-
-   private float lerpSpeed = 0.05f;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         gm = FindObjectOfType<GameManager>();
-        gm.health_amount = 100;
-        health = gm.health_amount;
     }
 
     // Update is called once per frame
@@ -34,14 +25,6 @@ public class Health : MonoBehaviour
 
     void Update()
     {
-        if (healthSlider.value != health)
-        {
-            healthSlider.value = health;
-        }
         
-        if (EasehealthSlider.value != health)
-        {
-            EasehealthSlider.value = Mathf.Lerp(EasehealthSlider.value, healthSlider.value, lerpSpeed);
-        }
     }
 } 
