@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class Turret : MonoBehaviour
 {
-    private GameObject target;
-    private GameObject _projectile;
+    public GameObject _projectile;
 
     private float Fire_rate = 2;
 
@@ -20,10 +19,20 @@ public class Turret : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player") && Cooldown < 0)
         {
-           GameObject clone = Instantiate(_projectile); 
-           GetComponent<Projectile>();
-            
-            Cooldown = Fire_rate;
+            Debug.LogWarning("Player Detected");
+            GameObject clone = Instantiate(_projectile, transform.position, Quaternion.identity);
+            Projectile script = clone.GetComponent<Projectile>();
+
+            if (script != null)
+            {
+                script.target = other.gameObject.transform.position;
+                Debug.LogWarning("Firing at target: " + other.transform.position);
+            }
+            else
+            {
+                Debug.LogWarning("Projectile script not found");
+            }
+           Cooldown = Fire_rate;
         } 
     }
 
