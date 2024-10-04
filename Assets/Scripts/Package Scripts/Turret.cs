@@ -15,22 +15,22 @@ public class Turret : MonoBehaviour
         
     }
 
-    private void OnTriggerStay(Collider other)
+    public void OnTriggerStay(Collider other)
     {
         if (other.gameObject.CompareTag("Player") && Cooldown < 0)
         {
-            Debug.LogWarning("Player Detected");
+            print("Player Detected");
             GameObject clone = Instantiate(_projectile, transform.position, Quaternion.identity);
             Projectile script = clone.GetComponent<Projectile>();
 
             if (script != null)
             {
                 script.target = other.gameObject.transform.position;
-                Debug.LogWarning("Firing at target: " + other.transform.position);
+                print("Firing at target: " + other.transform.position);
             }
             else
             {
-                Debug.LogWarning("Projectile script not found");
+                print("Projectile script not found");
             }
            Cooldown = Fire_rate;
         } 
