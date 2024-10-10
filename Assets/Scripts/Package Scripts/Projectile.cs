@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    private GameManager gm;
+    GameManager gm;
     public Vector3 target;
     private Vector3 direction;
     public float Projectile_speed = 20f;
@@ -22,11 +22,19 @@ public class Projectile : MonoBehaviour
         transform.position += direction * (Projectile_speed * Time.deltaTime);
     }
 
-    void OnTriggerEnter(Collider other)
+    void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player"))
         {
-            gm.health_amount -= 10;
+            if (gm != null)
+            {
+                gm.health_amount -= 10;
+                Debug.Log("Player hit: " + gm.health_amount);
+            }
+            else
+            {
+                Debug.Log("Gm not found");
+            }
             Destroy(gameObject, Deathtime);
         }
     }
