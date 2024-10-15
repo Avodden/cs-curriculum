@@ -21,9 +21,9 @@ public class PlayerController : MonoBehaviour
         GetComponentInChildren<Platformer_AnimatorController>().enabled = !overworld; //what do you think ! means?
         coin_amount = 0;
 
-        xspeed = 5;
+        xspeed = 6;
         
-        yspeed = 5;
+        yspeed = 6;
 
         if (overworld)
         {
@@ -39,7 +39,7 @@ public class PlayerController : MonoBehaviour
     {
         if (overworld)
         {
-            yspeed = 5;
+            yspeed = 6;
         }
         else
         {

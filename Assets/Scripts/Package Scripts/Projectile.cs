@@ -6,14 +6,16 @@ public class Projectile : MonoBehaviour
     GameManager gm;
     public Vector3 target;
     private Vector3 direction;
-    public float Projectile_speed = 20f;
-    private float Deathtime = 0.1f;
-    public float lifetime = 5f;
+    public float Projectile_speed;
+    public float Deathtime;
+    public float lifetime;
+    public int Projectile_damage;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         direction = (target - transform.position).normalized;
         Destroy(gameObject, lifetime);
+        gm = FindObjectOfType<GameManager>();
     }
 
     // Update is called once per frame
@@ -28,7 +30,7 @@ public class Projectile : MonoBehaviour
         {
             if (gm != null)
             {
-                gm.health_amount -= 10;
+                gm.health_amount -= Projectile_damage;
                 Debug.Log("Player hit: " + gm.health_amount);
             }
             else

@@ -264,7 +264,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 33.4
+  m_fontSize: 72
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -332,8 +332,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -188, y: 287.6}
-  m_SizeDelta: {x: 200, y: 37.3566}
+  m_AnchoredPosition: {x: -684, y: 392}
+  m_SizeDelta: {x: 230.8, y: 86.6416}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &532849911
 GameObject:
@@ -2854,6 +2854,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 281443058642124129, guid: 61298e56d913d4691a990f6f3f945298,
         type: 3}
+      propertyPath: m_fontSize
+      value: 38.95
+      objectReference: {fileID: 0}
+    - target: {fileID: 281443058642124129, guid: 61298e56d913d4691a990f6f3f945298,
+        type: 3}
+      propertyPath: m_margin.w
+      value: -6.1606445
+      objectReference: {fileID: 0}
+    - target: {fileID: 281443058642124129, guid: 61298e56d913d4691a990f6f3f945298,
+        type: 3}
       propertyPath: m_fontStyle
       value: 1
       objectReference: {fileID: 0}
@@ -2934,13 +2944,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5756046966564567484, guid: 61298e56d913d4691a990f6f3f945298,
         type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 230.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5756046966564567484, guid: 61298e56d913d4691a990f6f3f945298,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 86.6416
+      objectReference: {fileID: 0}
+    - target: {fileID: 5756046966564567484, guid: 61298e56d913d4691a990f6f3f945298,
+        type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -188
+      value: -684
       objectReference: {fileID: 0}
     - target: {fileID: 5756046966564567484, guid: 61298e56d913d4691a990f6f3f945298,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 242
+      value: 290
       objectReference: {fileID: 0}
     - target: {fileID: 7144591299189361400, guid: 61298e56d913d4691a990f6f3f945298,
         type: 3}

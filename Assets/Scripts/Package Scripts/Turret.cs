@@ -6,7 +6,7 @@ public class Turret : MonoBehaviour
 {
     public GameObject _projectile;
 
-    private float Fire_rate = 2;
+    private float Fire_rate = 1.5f;
 
     private float Cooldown;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
