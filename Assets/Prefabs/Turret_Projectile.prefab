@@ -141,4 +141,4 @@ MonoBehaviour:
   Projectile_speed: 15
   Deathtime: 0.05
   lifetime: 1.5
-  Projectile_damage: 5
+  Projectile_damage: 10
