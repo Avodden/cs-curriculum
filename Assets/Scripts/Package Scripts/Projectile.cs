@@ -31,6 +31,7 @@ public class Projectile : MonoBehaviour
             if (gm != null)
             {
                 gm.health_amount -= Projectile_damage;
+                gm.health_amount = Mathf.Clamp(gm.health_amount, 0, 100);
                 Debug.Log("Player hit: " + gm.health_amount);
             }
             else
