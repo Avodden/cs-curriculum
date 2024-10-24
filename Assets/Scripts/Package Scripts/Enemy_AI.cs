@@ -7,11 +7,13 @@ public class Enemy_axe : MonoBehaviour
     public float attackdistance = 1f;
 
     private GameObject player;
+    private GameObject ChaseRadius;
 
     private bool isChasing = false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        ChaseRadius = GameObject.FindGameObjectWithTag("ChaseCollider");
         player = GameObject.FindGameObjectWithTag("Player");
         if (player == null)
         {
@@ -22,39 +24,36 @@ public class Enemy_axe : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         if (isChasing && player != null)
         {
             ChasePlayer();
-
             // Check if in attack range
             if (Vector2.Distance(transform.position, player.transform.position) <= attackdistance)
-            {
+            {      
                 AttackPlayer();
             }
+            
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    public void OnTriggerEnter2D(Collider2D other)
     {
         Debug.Log("Collider triggered with: " + other.gameObject.name);
         
         if (other.CompareTag("Player"))
         {
-            if (gameObject.name == "ChaseRadius")
+            Debug.Log("Player entered Radius: " + gameObject.name);
+            if ( gameObject == ChaseRadius)
             {
                 Debug.Log("Chase method will be called.");
-                isChasing = true;  
+                isChasing = true;
+                Debug.Log("isChasing set to: " + isChasing);
             }     
-            
-            else if (gameObject.name == "AttackRadius")
-            {
-                Debug.Log("Attack method will be called.");
-                AttackPlayer();
-            }
         }
     }
 
-    private void OnTriggerExit2D(Collider2D other)
+    public void OnTriggerExit2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
@@ -67,19 +66,17 @@ public class Enemy_axe : MonoBehaviour
     {
         Debug.Log("Chasing Player");
         
-        if (player != null)
-        {
-            Vector2 direction = (player.transform.position - transform.position).normalized;
-            transform.position = Vector2.MoveTowards(transform.position, player.transform.position, chasespeed * Time.deltaTime);
-            Debug.Log("Chasing Player to position: " + player.transform.position);
-        }
+        Vector2 direction = (player.transform.position - transform.position).normalized;
+        transform.position = Vector2.MoveTowards(transform.position, player.transform.position, chasespeed * Time.deltaTime);
+        Debug.Log("Chasing Player to position: " + player.transform.position);
+        
     }
 
     private void AttackPlayer()
     {
         Debug.Log("Attacking Player");
         
-        if (player != null && Vector2.Distance(transform.position, player.transform.position) <= attackdistance)
+        if (Vector2.Distance(transform.position, player.transform.position) <= attackdistance)
         {
             Debug.Log("Player attacked!");
         }
