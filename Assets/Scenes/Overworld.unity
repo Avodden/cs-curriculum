@@ -42144,7 +42144,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 9.657729
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -42501,10 +42501,20 @@ PrefabInstance:
       propertyPath: m_BodyType
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1996527365673187554, guid: fbdc99957549444bfba281e61d9d218c,
+        type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3736838050167469039, guid: fbdc99957549444bfba281e61d9d218c,
         type: 3}
       propertyPath: m_Name
       value: MobileEnemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 3736838050167469039, guid: fbdc99957549444bfba281e61d9d218c,
+        type: 3}
+      propertyPath: m_Layer
+      value: 21
       objectReference: {fileID: 0}
     - target: {fileID: 4668079526467658351, guid: fbdc99957549444bfba281e61d9d218c,
         type: 3}
@@ -42556,6 +42566,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6074370204116875197, guid: fbdc99957549444bfba281e61d9d218c,
+        type: 3}
+      propertyPath: m_Layer
+      value: 21
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -42596,6 +42611,7 @@ MonoBehaviour:
   chasespeed: 3
   attackdistance: 1
   patrolspeed: 2
+  attackcooldown: 1
   patrolWaypoints:
   - {fileID: 527877664}
   - {fileID: 1490573542}
@@ -42605,6 +42621,9 @@ MonoBehaviour:
   - {fileID: 2123688200}
   - {fileID: 106509900}
   - {fileID: 662458688}
+  wallLayer:
+    serializedVersion: 2
+    m_Bits: 1048576
 --- !u!1 &1216580734
 GameObject:
   m_ObjectHideFlags: 0
@@ -42615,7 +42634,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1216580735}
   - component: {fileID: 1216580736}
-  m_Layer: 0
+  m_Layer: 21
   m_Name: ChaseCollider
   m_TagString: ChaseCollider
   m_Icon: {fileID: 0}
@@ -43433,9 +43452,9 @@ GameObject:
   - component: {fileID: 1350614022}
   - component: {fileID: 1350614021}
   - component: {fileID: 1350614023}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: Collision
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
